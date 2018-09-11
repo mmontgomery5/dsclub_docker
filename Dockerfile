@@ -26,6 +26,9 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-4.5.4-Linux-x86_
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
+RUN conda config --add channels defaults && \
+conda config --add channels conda-forge && \
+conda config --add channels bioconda
 
 #RUN apt-get install -y curl grep sed dpkg && \
  #   TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o "/v.*\"" | sed 's:^..\(.*\).$:\1:'` && \
