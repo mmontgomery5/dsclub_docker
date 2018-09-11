@@ -30,6 +30,9 @@ RUN conda config --add channels defaults && \
 conda config --add channels conda-forge && \
 conda config --add channels bioconda
 
+COPY environment.yml environment.yml
+RUN conda env update -f environment.yml
+
 #RUN apt-get install -y curl grep sed dpkg && \
  #   TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o "/v.*\"" | sed 's:^..\(.*\).$:\1:'` && \
  #   curl -L "https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini_${TINI_VERSION}.deb" > tini.deb && \
